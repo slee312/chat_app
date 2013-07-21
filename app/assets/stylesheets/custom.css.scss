@@ -14,15 +14,19 @@ footer {
   padding-bottom: 100px;
 }
 
-h1.temp-logo {
-  font-size: 116px;
-  line-height: normal;
-  color: $gray;
-  margin-bottom: 50px;
+h1.static-title {
+  font-size: 64px;
+  color: $orange;
 }
 
 .button-bar {
-  width:230px;
+  width:140px;
+}
+
+.descriptive-text {
+  padding-top: 30px;
+  font-size: 16px;
+  color: $gray;
 }
 
 
@@ -42,6 +46,13 @@ h1.temp-logo {
 .main-body {
   padding-top: 80px;
   padding-bottom: 100px;
+}
+
+h1.temp-logo {
+  font-size: 116px;
+  line-height: normal;
+  color: $gray;
+  margin-bottom: 50px;
 }
 
 .eye-catcher {

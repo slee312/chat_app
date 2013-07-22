@@ -53,7 +53,13 @@ h1.temp-logo {
   line-height: normal;
   color: $gray;
   margin-bottom: 50px;
+
+  .logo-pic {
+    padding-top: 25px;
+    vertical-align: top;
+  }
 }
+
 
 .eye-catcher {
   padding-top: 50px;

@@ -21,15 +21,19 @@ function checkGeo() {
 
 function success_geo_callback(geo) {
   clearTimeout(check_time_out);
-  $('#checking_area').html("Latitude:" + geo.coords.latitude + "<br /> Longitude:" + geo.coords.longitude + "<br />");
+  var user_lat = geo.coords.latitude;
+  var user_long = geo.coords.longitude;
+
+  //Print lat and long
+  $('#checking_area').html("Latitude:" + user_lat + "<br /> Longitude:" + user_long + "<br />");
 
   //Add Map
   var $mapDiv = $(document.createElement('div'));
-  $mapDiv.attr('id', 'map').css('height', '150px');
+  $mapDiv.attr('id', 'map').css('height', '450px');
   $('#checking_area').append($mapDiv);
-  var map = L.map('map').setView([geo.coords.latitude, geo.coords.longitude],13);
+  var map = L.map('map').setView([user_lat, user_long],13);
   L.tileLayer('http://{s}.mqcdn.com/tiles/1.0.0/map/{z}/{x}/{y}.jpg', { attribution: 'Map data &copy; OpenStreetMap; Map tiles &copy; Mapquest', maxZoom: 18, subdomains: ['otile1', 'otile2', 'otile3', 'otile4'] }).addTo(map);
-
+  var here_marker = L.marker([user_lat, user_long]).addTo(map);
 }
 
 function error_geo_callback(geo) {

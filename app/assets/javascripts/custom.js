@@ -21,13 +21,10 @@ function checkGeo() {
 
 function success_geo_callback(geo) {
   clearTimeout(check_time_out);
-  $('#checking_area').html("Latitude:" + geo.latitude + "<br /> Longitude:" + geo.longitude);
+  $('#checking_area').html("Latitude:" + geo.coords.latitude + "<br /> Longitude:" + geo.coords.longitude);
 }
 
 function error_geo_callback(geo) {
-  if (geo) {
-    alert(geo.message);
-  }
   clearTimeout(check_time_out);
   $('#checking_area').html("<br /><br /><span class = \"error-loading-text\">There was an error in finding your location.<br / ><span class = \"button-sub-text\">If you have previously denied location access, try resetting your browser location-based settings.</span></span><br /><br /><button class = \"btn btn-large btn-info\" id = \"test_geo_again\" type = \"button\">Try Again</button> "); 
   $('#test_geo_again').click(checkGeoAgain);

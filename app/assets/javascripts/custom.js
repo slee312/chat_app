@@ -33,7 +33,7 @@ function success_geo_callback(geo) {
   $mapDiv.attr('id', 'map').css('height', '450px');
   $('#checking_area').append($mapDiv);
   var map = L.map('map').setView([user_lat, user_long],13);
-  var attr_info = "Tiles Courtesy of <a href=\"http://www.mapquest.com/\" target=\"_blank\">MapQuest</a>; Data &copy; OpenStreetMap contributors"
+  var attr_info = "Tiles Courtesy of <a href=\"http://www.mapquest.com/\" target=\"_blank\">MapQuest</a>; Data &copy; OpenStreetMap"
   L.tileLayer('http://{s}.mqcdn.com/tiles/1.0.0/map/{z}/{x}/{y}.jpg', { attribution: attr_info, maxZoom: 18, subdomains: ['otile1', 'otile2', 'otile3', 'otile4'] }).addTo(map);
   var here_marker = L.marker([user_lat, user_long]).addTo(map);
 }

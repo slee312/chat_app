@@ -38,9 +38,13 @@ function success_geo_callback(geo) {
 
 function error_geo_callback(geo) {
   clearTimeout(check_time_out);
+  var errorMsg;
   if (geo) {
-    alert(geo.message);
+   errorMsg = "There was an error in finding your location.<br / ><span class = \"button-sub-text\">If you have previously denied location access, try resetting your browser location settings.</span>";
+  } else {
+    errorMsg = "Geotracking timed out. Please try again later.";
   }
-  $('#checking_area').html("<br /><br /><span class = \"error-loading-text\">There was an error in finding your location.<br / ><span class = \"button-sub-text\">If you have previously denied location access, try resetting your browser location settings.</span></span><br /><br /><button class = \"btn btn-large btn-info\" id = \"test_geo_again\" type = \"button\">Try Again</button> "); 
+
+  $('#checking_area').html("<br /><br /><span class = \"error-loading-text\">There was an error in finding your location.<br / ><span class = \"button-sub-text\">" + errorMsg + "</span><br /><br /><button class = \"btn btn-large btn-info\" id = \"test_geo_again\" type = \"button\">Try Again</button> "); 
   $('#test_geo_again').click(checkGeoAgain);
 }

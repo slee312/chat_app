@@ -28,6 +28,7 @@ function success_geo_callback(geo) {
   $('#checking_area').html("Latitude:" + user_lat + "<br /> Longitude:" + user_long + "<br />");
 
   //Add Map
+  L.Icon.Default.imagePath = "/assets";
   var $mapDiv = $(document.createElement('div'));
   $mapDiv.attr('id', 'map').css('height', '450px');
   $('#checking_area').append($mapDiv);

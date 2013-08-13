@@ -3,7 +3,6 @@
 <head>
   <title>ChatApp | <%= yield(:title) %></title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
   <%= render 'layouts/shim' %>
 </head>
@@ -11,5 +10,6 @@
 <%= render 'layouts/head' %>
 <%= yield %>
 <%= render 'layouts/foot' %>
+<%= javascript_include_tag "application" %>
 </body>
 </html>

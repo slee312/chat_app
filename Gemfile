@@ -23,6 +23,7 @@ group :assets do
 end
 
 gem 'jquery-rails', '2.0.2'
+gem 'leaflet-rails'
 
 
 group :production do

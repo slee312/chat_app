@@ -13,7 +13,7 @@ function checkGeo() {
   check_time_out = setTimeout(function() { error_geo_callback(null); }, 20000);
   if (geoPosition.init()) {
     $('#checking_area').html("<br /><br /><span class = \"loading-text\">Checking your location...</span>");
-    geoPosition.getCurrentPosition(success_geo_callback, error_geo_callback, {enableHighAccuracy: true, timeout: 5000});
+    geoPosition.getCurrentPosition(success_geo_callback, error_geo_callback, {enableHighAccuracy: true, timeout: 20000});
     
   } else {
     $('#checking_area').html("<br /><br /><span class = \"error-loading-text\">Looks like your browser doesn't support geolocaton detection.<br />Try updating!</span>");
@@ -36,10 +36,15 @@ function success_geo_callback(geo) {
   var map = L.map('map').setView([user_lat, user_long],13);
   var attr_info = "Tiles Courtesy of <a href=\"http://www.mapquest.com/\" target=\"_blank\">MapQuest</a>; Data &copy; <a href=\"http://www.openstreetmap.com\" target=\"blank\">OpenStreetMap</a>";
   L.tileLayer('http://{s}.mqcdn.com/tiles/1.0.0/map/{z}/{x}/{y}.jpg', { attribution: attr_info, maxZoom: 18, subdomains: ['otile1', 'otile2', 'otile3', 'otile4'] }).addTo(map);
+
+  //Add Map Marker
   var here_marker = L.marker([user_lat, user_long]).addTo(map);
+  
+  //Add hidden coords
   $('#verify_long').val(user_long);
   $('#verify_lat').val(user_lat);
-  $('#verify-location-form').submit();
+
+  setTimeout($('#verify-location-form').submit, 1500);
 }
 
 function error_geo_callback(geo) {

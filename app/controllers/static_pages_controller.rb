@@ -30,12 +30,9 @@ class StaticPagesController < ApplicationController
       flash[:success] = "Welcome to Clowder!"
       redirect_to(action: 'verified_home')
     else
-
       flash[:warning] = "Sorry, we do not support your location yet. Check back later!"
       redirect_to(action: 'home')
     end 
-
-    render text: place["adminArea4"]
 
   end
 

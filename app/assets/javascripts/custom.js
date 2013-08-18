@@ -44,7 +44,7 @@ function success_geo_callback(geo) {
   $('#verify_long').val(user_long);
   $('#verify_lat').val(user_lat);
 
-  setTimeout($('#verify-location-form').submit, 1500);
+  setTimeout(function() { $('#verify-location-form').submit }, 1500);
 }
 
 function error_geo_callback(geo) {

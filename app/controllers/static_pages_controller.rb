@@ -10,8 +10,8 @@ class StaticPagesController < ApplicationController
   
   def verify_status
     cookies.signed[:in_boston] = true
-    lat = params[:user_lat]
-    long = params[:user_long]
+    lat = params[:verify_lat]
+    long = params[:verify_long]
     render text: lat + " " + long
     #redirect_to(action: 'verified_home')
   end

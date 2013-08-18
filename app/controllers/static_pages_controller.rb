@@ -22,7 +22,7 @@ class StaticPagesController < ApplicationController
     #redirect_to(action: 'verified_home')
     city = "Boston"
 
-    if place["adminArea5"].include? city || place["adminArea4"].include? city || place["adminArea3"].include? city || place["adminArea1"].include? city
+    if place["adminArea5"].include?(city) || place["adminArea4"].include?(city) || place["adminArea3"].include?(city) || place["adminArea1"].include?(city)
       cookies.signed[:in_boston] = true
 
       #redirect to verified page

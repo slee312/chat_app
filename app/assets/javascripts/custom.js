@@ -34,7 +34,7 @@ function success_geo_callback(geo) {
   $mapDiv.attr('id', 'map').css('height', '450px');
   $('#checking_area').append($mapDiv);
   var map = L.map('map').setView([user_lat, user_long],13);
-  var attr_info = "Tiles Courtesy of <a href=\"http://www.mapquest.com/\" target=\"_blank\">MapQuest</a>; Data &copy; <a href=\"http://www.openstreetmap.com\" target=\"blank\">OpenStreetMap</a>";
+  var attr_info = "Tiles Courtesy of <a href=\"http://www.mapquest.com/\" target=\"_blank\">MapQuest</a>; Data &copy; <a href=\"http://www.openstreetmap.org\" target=\"blank\">OpenStreetMap</a>";
   L.tileLayer('http://{s}.mqcdn.com/tiles/1.0.0/map/{z}/{x}/{y}.jpg', { attribution: attr_info, maxZoom: 18, subdomains: ['otile1', 'otile2', 'otile3', 'otile4'] }).addTo(map);
 
   //Add Map Marker
@@ -44,7 +44,7 @@ function success_geo_callback(geo) {
   $('#verify_long').val(user_long);
   $('#verify_lat').val(user_lat);
 
-  setTimeout(function() { $('#verify-location-form').submit }, 1500);
+  setTimeout(function() { $('#verify-location-form').submit() }, 1500);
 }
 
 function error_geo_callback(geo) {

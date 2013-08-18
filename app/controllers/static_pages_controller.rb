@@ -31,7 +31,7 @@ class StaticPagesController < ApplicationController
       redirect_to(action: 'verified_home')
     else
 
-      flash[:alert] = "Sorry, we do not support your location yet. Check back later!"
+      flash[:warning] = "Sorry, we do not support your location yet. Check back later!"
       redirect_to(action: 'home')
     end 
 

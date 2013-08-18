@@ -3,7 +3,7 @@
     <div class = "span4 offset8">
       <div class = "pull-right button-bar">
         <ul class = "nav nav-pills">
-          <li <% if yield(:title) == "Home" %> class = "active" <% end %>><a href = "/">Home</a></li>
+          <li <% if yield(:title) == "Home" %> class = "active" <% end %>><a href = "/<% if cookies.signed[:in_boston] %>home<% end %>">Home</a></li>
           &nbsp; &nbsp;
           <li <% if yield(:title) == "FAQ" %> class = "active" <% end %>><a href = "/faq">FAQ</a></li>
         </ul>

@@ -19,8 +19,8 @@ class StaticPagesController < ApplicationController
     #parse response and determine if user is in the right city
     place = response["results"][0]["locations"][0]
 
-    #redirect_to(action: 'verified_home')
-    city = "Boston"
+    #tentatively Hong Kong for testing purposes
+    city = "Hong Kong"
 
     if place["adminArea5"].include?(city) || place["adminArea4"].include?(city) || place["adminArea3"].include?(city) || place["adminArea1"].include?(city)
       cookies.signed[:in_boston] = true

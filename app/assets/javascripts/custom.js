@@ -46,8 +46,20 @@ function success_geo_callback(geo) {
   $('#verify_long').val(user_long);
   $('#verify_lat').val(user_lat);
 
-  setTimeout(function() { $('#verify-location-form').submit() }, 1500);
+  createLoadBar(function() { $('#verify-location-form').submit(); }, 5000, $('#checking_area'));
 }
+
+//creates a loading bar with a callback function after the designated amouont of time, appended in the designated jQuery element
+function createLoadBar(func, duration, element) {
+    var loading_box = $(document.createElement("div"));
+    loading_box.attr("class", "progress progress-striped");
+    var loading_bar = $(document.createElement("div"));
+    loading_bar.attr({ "class": "bar", "style": "width: 0%"});
+    loading_box.append(loading_bar);
+    element.append(loading_box);
+    loading_bar.animate({ width: "100%"}, duration, func);
+}
+
 
 function error_geo_callback(geo) {
   clearTimeout(check_time_out);

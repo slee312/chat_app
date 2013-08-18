@@ -24,6 +24,7 @@ end
 
 gem 'jquery-rails', '2.0.2'
 gem 'leaflet-rails'
+gem 'httparty'
 
 
 group :production do

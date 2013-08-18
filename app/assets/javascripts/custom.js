@@ -8,11 +8,12 @@ function checkGeoAgain() {
   clearTimeout(check_time_out);
   checkGeo();
 }
+
 function checkGeo() {
   check_time_out = setTimeout(function() { error_geo_callback(null); }, 20000);
   if (geoPosition.init()) {
     $('#checking_area').html("<br /><br /><span class = \"loading-text\">Checking your location...</span>");
-    geoPosition.getCurrentPosition(success_geo_callback, error_geo_callback, {enableHighAccuracy: true});
+    geoPosition.getCurrentPosition(success_geo_callback, error_geo_callback, {enableHighAccuracy: true, timeout: 5000});
     
   } else {
     $('#checking_area').html("<br /><br /><span class = \"error-loading-text\">Looks like your browser doesn't support geolocaton detection.<br />Try updating!</span>");
@@ -25,7 +26,7 @@ function success_geo_callback(geo) {
   var user_long = geo.coords.longitude;
 
   //Print lat and long
-  $('#checking_area').html("Latitude:" + user_lat + "<br /> Longitude:" + user_long + "<br />");
+  $('#checking_area').html("We estimate that you are: <br />");
 
   //Add Map
   L.Icon.Default.imagePath = "/assets";
@@ -33,15 +34,18 @@ function success_geo_callback(geo) {
   $mapDiv.attr('id', 'map').css('height', '450px');
   $('#checking_area').append($mapDiv);
   var map = L.map('map').setView([user_lat, user_long],13);
-  var attr_info = "Tiles Courtesy of <a href=\"http://www.mapquest.com/\" target=\"_blank\">MapQuest</a>; Data &copy; OpenStreetMap"
+  var attr_info = "Tiles Courtesy of <a href=\"http://www.mapquest.com/\" target=\"_blank\">MapQuest</a>; Data &copy; <a href=\"http://www.openstreetmap.com\" target=\"blank\">OpenStreetMap</a>";
   L.tileLayer('http://{s}.mqcdn.com/tiles/1.0.0/map/{z}/{x}/{y}.jpg', { attribution: attr_info, maxZoom: 18, subdomains: ['otile1', 'otile2', 'otile3', 'otile4'] }).addTo(map);
   var here_marker = L.marker([user_lat, user_long]).addTo(map);
+  $('#verify_long').val(user_long);
+  $('#verify_lat').val(user_lat);
+  $('#verify-location-form').submit();
 }
 
 function error_geo_callback(geo) {
   clearTimeout(check_time_out);
   var errorMsg;
-  if (geo) {
+  if (geo && geo.message.indexOf('expired') < 0) {
    errorMsg = "There was an error in finding your location.<br / ><span class = \"button-sub-text\">If you have previously denied location access, try resetting your browser location settings.</span>";
   } else {
     errorMsg = "Geotracking timed out. Please try again later.";

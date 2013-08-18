@@ -9,7 +9,7 @@
   </div>
   <div class = "row text-center" id = "checking_area">
         <p class = "intro-text">
-        We are now opening our service to users in the Boston area!
+        We are now opening our service to students in the Boston area!
         <br />
         Tell us where you are and immerse yourself into the local discussion.
         </p>
@@ -19,4 +19,8 @@
         We will never use your location without your permission.
         </p>
   </div>
+  <%= form_tag({action: "verify_status"}, id: "verify-location-form") do %>
+    <%= hidden_field_tag(:verify_long, nil) %>
+    <%= hidden_field_tag(:verify_lat, nil) %>
+  <% end %>
 </section>

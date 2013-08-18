@@ -28,7 +28,7 @@ function success_geo_callback(geo) {
   var user_long = geo.coords.longitude;
 
   //Print lat and long
-  $('#checking_area').html("We think you are here: <br />");
+  $('#checking_area').html("<br /><h3>We think you are here:</h3> <br /><br />");
 
   //Add Map
   L.Icon.Default.imagePath = "/assets";

@@ -10,6 +10,8 @@ function checkGeoAgain() {
 }
 
 function checkGeo() {
+  //remove any flash alerts
+  $('#flash-alerts').html("");
   check_time_out = setTimeout(function() { error_geo_callback(null); }, 20000);
   if (geoPosition.init()) {
     $('#checking_area').html("<br /><br /><span class = \"loading-text\">Checking your location...</span>");

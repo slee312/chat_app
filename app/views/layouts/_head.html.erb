@@ -10,9 +10,9 @@
       </div>
     </div>
   </div>
-  <div class = "row text-center">
+  <div class = "row text-center" id = "flash-alerts">
     <% flash.each do |k,v| %>
-      <%= content_tag(:div, v, class: "alert-#{k}") %>
+      <%= content_tag(:div, v, class: "alert alert-#{k}") %>
     <% end %>
   </div>
 </header>

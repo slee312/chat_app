@@ -28,12 +28,12 @@ function success_geo_callback(geo) {
   var user_long = geo.coords.longitude;
 
   //Print lat and long
-  $('#checking_area').html("We estimate that you are: <br />");
+  $('#checking_area').html("We think you are here: <br />");
 
   //Add Map
   L.Icon.Default.imagePath = "/assets";
   var $mapDiv = $(document.createElement('div'));
-  $mapDiv.attr('id', 'map').css('height', '450px');
+  $mapDiv.attr('id', 'map').css('height', '250px');
   $('#checking_area').append($mapDiv);
   var map = L.map('map').setView([user_lat, user_long],13);
   var attr_info = "Tiles Courtesy of <a href=\"http://www.mapquest.com/\" target=\"_blank\">MapQuest</a>; Data &copy; <a href=\"http://www.openstreetmap.org\" target=\"blank\">OpenStreetMap</a>";
@@ -46,7 +46,7 @@ function success_geo_callback(geo) {
   $('#verify_long').val(user_long);
   $('#verify_lat').val(user_lat);
 
-  createLoadBar(function() { $('#verify-location-form').submit(); }, 5000, $('#checking_area'));
+  createLoadBar(function() { $('#verify-location-form').submit(); }, 2000, $('#checking_area'));
 }
 
 //creates a loading bar with a callback function after the designated amouont of time, appended in the designated jQuery element
@@ -57,7 +57,7 @@ function createLoadBar(func, duration, element) {
     loading_bar.attr({ "class": "bar", "style": "width: 0px"});
     loading_box.append(loading_bar);
     element.append(loading_box);
-    loading_bar.animate({ width: loading_box.width() + "px"}, duration);
+    loading_bar.animate({ width: loading_box.width() + "px"}, duration, func);
 }
 
 

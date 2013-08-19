@@ -23,7 +23,7 @@ class StaticPagesController < ApplicationController
     city = "Hong Kong"
 
     if place["adminArea5"].include?(city) || place["adminArea4"].include?(city) || place["adminArea3"].include?(city) || place["adminArea1"].include?(city)
-      cookies.signed[:in_boston] = true
+      cookies.permanent.signed[:in_boston] = true
 
       #redirect to verified page
       headers["Status"] = "301 Moved Permanently"

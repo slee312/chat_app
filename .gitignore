@@ -16,3 +16,4 @@
 
 # Ignore git temp files
 *.swp
+*.swo

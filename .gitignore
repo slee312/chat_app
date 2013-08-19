@@ -15,5 +15,4 @@
 /tmp
 
 # Ignore git temp files
-*.swp
-*.swo
+*.sw*

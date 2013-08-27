@@ -6,6 +6,10 @@ class StaticPagesController < ApplicationController
     if cookies.signed[:in_boston]
       headers["Status"] = "301 Moved Permanently"
       redirect_to(action: 'verified_home')
+    else
+        #redirect because geolocation doesn't work right now.        
+        cookies.permanent.signed[:in_boston] = true
+        redirect_to(action: 'verified_home')
     end
   end
   

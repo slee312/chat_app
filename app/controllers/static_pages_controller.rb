@@ -2,6 +2,8 @@ class StaticPagesController < ApplicationController
   def home
     #temp to test features prior to verification
     cookies.delete :in_boston
+    #temp to ignore location checking
+    cookies.permanent.signed[:in_boston] = true
     
     if cookies.signed[:in_boston]
       headers["Status"] = "301 Moved Permanently"
@@ -44,6 +46,8 @@ class StaticPagesController < ApplicationController
     if !cookies.signed[:in_boston]
       redirect_to(action: 'home')
     else
+
+    render layout: "logged"
 
     end
   end

@@ -4,6 +4,23 @@
 $blueLight: #66CCFF;
 $blueSuperLight: #CCFFFF;
 
+
+.top-bar-background {
+  background-color:#EEE;
+  height:150px;
+  opacity:.75;
+  filter:alpha(opacity=75);
+  border-bottom:solid $blue 5px;
+}
+
+
+
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
 /* universal */
 body {
   padding-top: 20px;

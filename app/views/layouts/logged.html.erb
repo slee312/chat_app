@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang = "en">
+<head>
+  <title>Clowder | <%= yield(:title) %></title>
+  <%= stylesheet_link_tag "application", :media => "all" %>
+  <%= csrf_meta_tags %>
+  <%= render 'layouts/shim' %>
+</head>
+<body>
+<%= render 'layouts/logged_head' %>
+<%= yield %>
+<%= render 'layouts/logged_foot' %>
+<%= javascript_include_tag "application" %>
+</body>
+</html>

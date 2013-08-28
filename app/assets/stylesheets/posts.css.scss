@@ -1,0 +1,144 @@
+/*
+*= require leaflet
+*= require leaflet.ie
+*/
+@import "bootstrap";
+
+/* mixins and variables */
+$blueLight: #66CCFF;
+$blueSuperLight: #CCFFFF;
+$blueDark: #06C;
+$orangeDark: #FF6600;
+
+/* general */
+textarea {
+    resize: none;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+/* main container */
+.depth-label {
+    color: $orangeDark;
+}
+.post-writer-container {
+    margin-top: 20px;
+}
+.post-writer {
+    width: 100%;
+}
+
+/* map settings */
+.map-placeholder {
+    position: absolute;
+    top: 175px;
+    left: 10px;
+    font-size: 36px;
+    color: #CCC;
+}
+
+#map {
+    background-color:#EEE;
+    position: absolute;
+    top: 200px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+/* suggest box settings */
+h4.suggest-title {
+    color: #333;
+}
+
+ul.clowd-listing {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+/* page framework */
+.top-bar-background {
+  background-color: #EEE;
+  height: 150px;
+  opacity: .9;
+  filter: alpha(opacity=90);
+  border-bottom: solid $blue 5px;
+}
+
+.left-container {
+    background-color: #FFF;
+    position: absolute;
+    width: 70%;
+    top: 155px;
+    bottom: 0;
+    left: 0;
+    overflow: hidden;
+}
+
+.right-container {
+    background-color: green;
+    position: absolute;
+    width: 30%;
+    top: 0; 
+    bottom: 0;
+    right: 0;
+}
+
+.expand-bar {
+    background-color: #666;
+    position: absolute;
+    width: 20px; 
+    height: 100%;
+    top: 0;
+    left: 0;
+    cursor: pointer;
+}
+
+
+.map-box {
+    background-color: #FFF;
+    position: absolute;
+    margin-top: -200px;
+    height: 100%;
+    top: 0;
+    left: 20px;
+    right: 0;
+}
+
+
+.suggest-box {
+    background-color: $blueDark;
+    position: absolute;
+    height: 200px;
+    left: 20px;
+    right: 0;
+    bottom: 0;
+}
+
+.suggest-inner-box {
+    background-color: #FFF;
+    position: absolute;
+    height: 197px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.text-container {
+    position: absolute;
+    top: 5px;
+    left: 10px;
+    right: 10px;
+}
+
+/* bootstrap extensions */
+.btn-xlarge {
+  padding: 22px 26px;
+  font-size: 24px;
+  line-height: normal;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  border-radius: 8px;
+}

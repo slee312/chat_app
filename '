@@ -1,0 +1,21 @@
+<%= provide(:title, 'Home') %>
+<div class = "left-container">
+    <!--Main post box-->
+    abc
+</div>
+<div class = "right-container">
+    <div class = "expand-bar">
+    <!--Expand bar-->
+        a
+    </div>
+    <div class = "map-box">
+    <!--Map box-->
+        <div id = "map">
+            <div class = "map-placeholder">Loading Maps...</div>
+        </div>
+    </div>
+    <div class = "suggest-box">
+    <!--Clowd suggestion box-->
+        Nearby Clowds
+    </div>
+</div>

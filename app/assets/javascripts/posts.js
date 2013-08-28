@@ -2,6 +2,14 @@
 
 $(document).ready(function() {
     setUpMap();
+    $('.post-writer').focus(function() {
+        $(this).animate({ height: '90px'}, 500);
+    });
+    $('.post-writer').focusout(function() {
+        if($.trim($(this).val()) == "") {
+            $(this).animate({ height: '30px'}, 500);
+        }
+    });
 });
 
 

@@ -2,7 +2,7 @@
 <html lang = "en">
 <head>
   <title>ChatApp | <%= yield(:title) %></title>
-  <%= stylesheet_link_tag "application", :media => "all" %>
+  <%= stylesheet_link_tag params[:controller], :media => "all" %>
   <%= csrf_meta_tags %>
   <%= render 'layouts/shim' %>
 </head>
@@ -10,6 +10,6 @@
 <%= render 'layouts/head' %>
 <%= yield %>
 <%= render 'layouts/foot' %>
-<%= javascript_include_tag "application" %>
+<%= javascript_include_tag params[:controller] %>
 </body>
 </html>

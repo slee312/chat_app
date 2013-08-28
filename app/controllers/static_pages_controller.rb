@@ -2,16 +2,12 @@ class StaticPagesController < ApplicationController
   def home
     #temp to test features prior to verification
     cookies.delete :in_boston
-    #temp to ignore location checking
-    cookies.permanent.signed[:in_boston] = true
     
     if cookies.signed[:in_boston]
       headers["Status"] = "301 Moved Permanently"
-      redirect_to(action: 'verified_home')
+      redirect_to(home_url)
     else
         #redirect because geolocation doesn't work right now.        
-        cookies.permanent.signed[:in_boston] = true
-        redirect_to(action: 'verified_home')
     end
   end
   
@@ -34,22 +30,13 @@ class StaticPagesController < ApplicationController
       #redirect to verified page
       headers["Status"] = "301 Moved Permanently"
       flash[:success] = "Welcome to Clowder!"
-      redirect_to(action: 'verified_home')
+      redirect_to(home_url)
     else
       flash[:block] = "Sorry, we do not support your location yet. Check back later!"
-      redirect_to(action: 'home')
+      redirect_to(root_url)
     end 
 
   end
 
-  def verified_home
-    if !cookies.signed[:in_boston]
-      redirect_to(action: 'home')
-    else
-
-    render layout: "logged"
-
-    end
-  end
 
 end

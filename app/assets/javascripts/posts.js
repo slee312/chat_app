@@ -2,20 +2,24 @@
 
 $(document).ready(function() {
     setUpMap();
-
     setUpPostbox();
 });
 
 function setUpPostbox() {
-    $('#post-writer').css("width", $('#post-writer').parent().width() - 20);
+    resizePostbox();
+    $(window).resize(resizePostbox);
     $('#post-writer').focus(function() {
-        $(this).animate({ height: '90px'}, 500);
+        $(this).animate({ height: '90px'}, 300);
     });
     $('#post-writer').focusout(function() {
         if($.trim($(this).val()) == "") {
-            $(this).animate({ height: '30px'}, 500);
+            $(this).animate({ height: '20px'}, 300);
         }
     });
+}
+
+function resizePostbox() {
+    $('#post-writer').css("width", $('#post-writer').parent().width() - 20);
 }
 
 function setUpMap() {

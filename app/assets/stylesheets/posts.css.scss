@@ -230,11 +230,28 @@ ul.clowd-listing {
 .left-container {
     background-color: #FFF;
     position: absolute;
+    z-index: 30;
     width: 70%;
     top: 155px;
     bottom: 0;
     left: 0;
     overflow-y: scroll;
+}
+
+#load-left {
+    background-color: #FFF;
+    position: absolute;
+    z-index: 31;
+    width: 70%;
+    top: 155px;
+    bottom: 0;
+    left: 0;
+}
+.load-left-text {
+    margin-left: 10px;
+    margin-top: 15px;
+    font-size: 36px;
+    color: #CCC;
 }
 
 .right-container {

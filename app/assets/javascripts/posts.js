@@ -1,6 +1,7 @@
 //= require application
 
 $(document).ready(function() {
+    $('#load-left').hide();
     setUpMap();
     setUpPostbox();
     setUpPostSizes();

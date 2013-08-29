@@ -3,7 +3,33 @@
 $(document).ready(function() {
     setUpMap();
     setUpPostbox();
+    setUpPostSizes();
+    setUpExpandButton();
 });
+
+function setUpExpandButton() {
+    $('.expand-bar').mouseover(function() {
+        $('#expand-icons').fadeTo(.1, 1);
+    });
+    $('.expand-bar').mouseout(function() {
+        $('#expand-icons').fadeTo(.1, .7);
+    });
+}
+
+function setUpPostSizes() {
+    $('.post-content').each(function() {
+        $(this).height($(this).height() + 20); // increase height by 20 on top of default text height
+    });
+    setPostHeights();
+    $(window).resize(setPostHeights);
+}
+
+function setPostHeights() {
+    $('.post-content').each(function() {
+        $(this).parent().next().next().children('.post-mid').height($(this).height());
+        $(this).parent().parent().height($(this).height() + 50); // 50 is the combined height of the top and bot sections
+    });
+}
 
 function setUpPostbox() {
     resizePostbox();

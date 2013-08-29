@@ -9,6 +9,13 @@ $blueLight: #66CCFF;
 $blueSuperLight: #CCFFFF;
 $blueDark: #06C;
 $orangeDark: #FF6600;
+$graySuperLight: #CCC;
+
+@mixin border-radius($vert, $horiz, $radius: 5px) {
+    -webkit-border-#{$vert}-#{$horiz}-radius: $radius;
+    -moz-border-#{$vert}-#{$horiz}-radius: $radius;
+    -border-#{$vert}-#{$horiz}-radius: $radius;
+}
 
 /* general */
 textarea {
@@ -33,7 +40,7 @@ textarea {
 }
 .line-container {
     line-height: 1px;
-    border-bottom: 1px solid #999;
+    border-bottom: 1px solid $grayLight;
     margin-top: 9px;
 }
 .line-text {
@@ -45,7 +52,7 @@ textarea {
 .post {
     position: relative;
     width: 100%;
-    height: 125px;
+    margin-top: 20px;
 }
 .post-left {
     position: absolute;
@@ -80,7 +87,6 @@ textarea {
     left: 0;
     right: 0;
     top: 25px;
-    bottom: 25px;
 }
 .post-bot {
     position: absolute;
@@ -88,10 +94,95 @@ textarea {
     right: 0;
     bottom: 0;
     height: 25px;
+    margin-bottom: -5px;
 }
 h2.post-title {
     margin: 10px 0 0 0;
     padding:0;
+}
+.post-content {
+}
+
+.vote-button {
+    width: 50px;
+    background-color: $grayLight;
+    float: right;
+    cursor: pointer;
+    text-align: center;
+}
+
+.vote-button:hover {
+    background-color: $gray;
+}
+
+.rating-bar {
+   position: absolute;
+   z-index: 20;
+   top: 0;
+   left: 15px;
+   bottom: 0;
+   width: 40px;
+   background-color: $graySuperLight;
+   @include border-radius(top, left); 
+   @include border-radius(top, right); 
+   @include border-radius(bottom, left); 
+   @include border-radius(bottom, right); 
+}
+
+.rating-bar-fill {
+   position: absolute;
+   z-index: 21;
+   left: 15px;
+   bottom: 0;
+   width: 40px;
+   height: 50%;
+   background-color: $orange;
+   @include border-radius(bottom, left); 
+   @include border-radius(bottom, right); 
+}
+
+.rating-overlay {
+    position: absolute;
+    z-index: 22;
+    right: 7px;
+    bottom: 10px;
+    color: #FFF;
+    font-weight: bold;
+}
+
+.pos-rating {
+    color: $green;
+}
+
+.neg-rating {
+    color: $red;
+}
+
+a.post-link {
+    text-decoration: none;
+    color: $orangeDark;
+}
+a.post-link:hover {
+    text-decoration: underline;
+}
+
+.post-type {
+    color: $gray;
+}
+
+.post-clowd {
+    color: $gray;
+    font-weight: bold;
+}
+
+.post-time {
+    color: $gray;
+}
+
+.user-name {
+    font-weight: bold;
+    text-decoration: underline;
+    color: $grayDark;
 }
 
 /* map settings */
@@ -139,7 +230,7 @@ ul.clowd-listing {
     top: 155px;
     bottom: 0;
     left: 0;
-    overflow: hidden;
+    overflow-y: scroll;
 }
 
 .right-container {
@@ -154,17 +245,37 @@ ul.clowd-listing {
 .expand-bar {
     background-color: #666;
     position: absolute;
+    z-index: 12;
     width: 20px; 
     height: 100%;
     top: 0;
     left: 0;
     cursor: pointer;
+    border-left: 2px solid #888;
+    border-right: 2px solid #555;
+    vertical-align: bottom;
+
+}
+
+.expand-bar:hover {
+    background-color: #555;
+    border-left: 2px solid #666;
+    border-right: 2px solid #777;
+}
+
+#expand-icons {
+    position: absolute;
+    top: 50%;
+    margin-left: 2px;
+    opacity: .7;
+    filter: alpha(opacity=70);
 }
 
 
 .map-box {
     background-color: #FFF;
     position: absolute;
+    z-index: 10;
     margin-top: -200px;
     height: 100%;
     top: 0;
@@ -176,6 +287,7 @@ ul.clowd-listing {
 .suggest-box {
     background-color: $blueDark;
     position: absolute;
+    z-index: 11;
     height: 200px;
     left: 20px;
     right: 0;

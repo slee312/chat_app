@@ -2,16 +2,21 @@
 
 $(document).ready(function() {
     setUpMap();
-    $('.post-writer').focus(function() {
+
+    setUpPostbox();
+});
+
+function setUpPostbox() {
+    $('#post-writer').css("width", $('#post-writer').parent().width() - 20);
+    $('#post-writer').focus(function() {
         $(this).animate({ height: '90px'}, 500);
     });
-    $('.post-writer').focusout(function() {
+    $('#post-writer').focusout(function() {
         if($.trim($(this).val()) == "") {
             $(this).animate({ height: '30px'}, 500);
         }
     });
-});
-
+}
 
 function setUpMap() {
   L.Icon.Default.imagePath = "/assets";

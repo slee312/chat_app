@@ -17,15 +17,16 @@ function setUpExpandButton() {
 }
 
 function setUpPostSizes() {
-    $('.post-content').each(function() {
-        $(this).height($(this).height() + 20); // increase height by 20 on top of default text height
-    });
     setPostHeights();
     $(window).resize(setPostHeights);
 }
 
 function setPostHeights() {
     $('.post-content').each(function() {
+        $(this).css('height', 'auto');
+        if ($(this).height() < 100) { // make sure it's big enough to fit the rating bar
+            $(this).height($(this).height() + 50); // increase height by 20 on top of default text height
+        }
         $(this).parent().next().next().children('.post-mid').height($(this).height());
         $(this).parent().parent().height($(this).height() + 50); // 50 is the combined height of the top and bot sections
     });

@@ -99,6 +99,7 @@ textarea {
 h2.post-title {
     margin: 10px 0 0 0;
     padding:0;
+    color: $infoText;
 }
 .post-content {
 }
@@ -118,10 +119,11 @@ h2.post-title {
 .rating-bar {
    position: absolute;
    z-index: 20;
-   top: 0;
    left: 15px;
-   bottom: 0;
+   bottom: 50%;
+   margin-bottom: -50px;
    width: 40px;
+   height: 100px;
    background-color: $graySuperLight;
    @include border-radius(top, left); 
    @include border-radius(top, right); 
@@ -133,9 +135,10 @@ h2.post-title {
    position: absolute;
    z-index: 21;
    left: 15px;
-   bottom: 0;
+   bottom: 50%;
+   margin-bottom: -50px;
    width: 40px;
-   height: 50%;
+   height: 70px;
    background-color: $orange;
    @include border-radius(bottom, left); 
    @include border-radius(bottom, right); 
@@ -145,7 +148,8 @@ h2.post-title {
     position: absolute;
     z-index: 22;
     right: 7px;
-    bottom: 10px;
+    bottom: 50%;
+    margin-bottom: -15px;
     color: #FFF;
     font-weight: bold;
 }

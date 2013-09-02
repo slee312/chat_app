@@ -22,7 +22,7 @@ class StaticPagesController < ApplicationController
     place = response["results"][0]["locations"][0]
 
     #tentatively Hong Kong for testing purposes
-    city = "Hong Kong"
+    city = "Baltimore"
 
     if place["adminArea5"].include?(city) || place["adminArea4"].include?(city) || place["adminArea3"].include?(city) || place["adminArea1"].include?(city)
       cookies.permanent.signed[:in_boston] = true

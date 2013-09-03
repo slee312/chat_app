@@ -1,0 +1,45 @@
+<%= form_for(@clowd) do |f| %>
+  <% if @clowd.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@clowd.errors.count, "error") %> prohibited this clowd from being saved:</h2>
+
+      <ul>
+      <% @clowd.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br />
+    <%= f.text_area :description %>
+  </div>
+  <div class="field">
+    <%= f.label :edit %><br />
+    <%= f.datetime_select :edit %>
+  </div>
+  <div class="field">
+    <%= f.label :approvals %><br />
+    <%= f.number_field :approvals %>
+  </div>
+  <div class="field">
+    <%= f.label :flags %><br />
+    <%= f.number_field :flags %>
+  </div>
+  <div class="field">
+    <%= f.label :status %><br />
+    <%= f.number_field :status %>
+  </div>
+  <div class="field">
+    <%= f.label :icon %><br />
+    <%= f.text_field :icon %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

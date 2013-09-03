@@ -1,0 +1,2 @@
+module ClowdsHelper
+end

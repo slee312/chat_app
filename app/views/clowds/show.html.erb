@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @clowd.name %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @clowd.description %>
+</p>
+
+<p>
+  <b>Edit:</b>
+  <%= @clowd.edit %>
+</p>
+
+<p>
+  <b>Approvals:</b>
+  <%= @clowd.approvals %>
+</p>
+
+<p>
+  <b>Flags:</b>
+  <%= @clowd.flags %>
+</p>
+
+<p>
+  <b>Status:</b>
+  <%= @clowd.status %>
+</p>
+
+<p>
+  <b>Icon:</b>
+  <%= @clowd.icon %>
+</p>
+
+
+<%= link_to 'Edit', edit_clowd_path(@clowd) %> |
+<%= link_to 'Back', clowds_path %>

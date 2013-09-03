@@ -1,0 +1,35 @@
+<h1>Listing clowds</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+    <th>Edit</th>
+    <th>Approvals</th>
+    <th>Flags</th>
+    <th>Status</th>
+    <th>Icon</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @clowds.each do |clowd| %>
+  <tr>
+    <td><%= clowd.name %></td>
+    <td><%= clowd.description %></td>
+    <td><%= clowd.edit %></td>
+    <td><%= clowd.approvals %></td>
+    <td><%= clowd.flags %></td>
+    <td><%= clowd.status %></td>
+    <td><%= clowd.icon %></td>
+    <td><%= link_to 'Show', clowd %></td>
+    <td><%= link_to 'Edit', edit_clowd_path(clowd) %></td>
+    <td><%= link_to 'Destroy', clowd, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Clowd', new_clowd_path %>

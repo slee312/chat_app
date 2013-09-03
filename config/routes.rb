@@ -1,4 +1,7 @@
 ChatApp::Application.routes.draw do
+  resources :clowds
+
+
   root to: 'static_pages#home'
   get 'home', to: 'posts#home'
   get 'faq', to: 'static_pages#faq' 

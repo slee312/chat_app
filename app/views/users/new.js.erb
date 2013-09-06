@@ -1,2 +1,16 @@
 $('#dimmed_display').animate({width: "350", height: "450"}, 500);
-setTimeout(function() {$('#dimmed_display').html('<%= escape_javascript(render partial: 'users/reg', layout: 'layouts/popup') %>'); $('#dimmer_close').click(function() { closePopup(); }); }, 500);
+setTimeout(loadRegisterForm, 500);
+
+function loadRegisterForm() {
+    $('#dimmed_display').html('<%= escape_javascript(render partial: 'users/reg', layout: 'layouts/popup') %>');
+    $('#dimmer_close').click(function() {
+        closePopup();
+    });
+    $('#new_user').submit(function() {
+        if ($('.popup-errors').length) {
+            $('.popup-errors').remove();
+        }
+        $.post(this.action + '.js', $(this).serialize(), null, "script"); 
+        return false;
+    });
+}

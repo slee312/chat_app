@@ -13,6 +13,8 @@ class User
     validates_confirmation_of :password
     validates_presence_of :password
 
+    attr_accessible :username, :email, :password, :password_confirmation
+
 
     before_save :encrypt_password
 

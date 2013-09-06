@@ -14,6 +14,11 @@ class UsersController < ApplicationController
         else
             flash.now[:alert] = "Failed to sign up"
         end
-        render action: "new"
+
+        respond_to do |f|
+            f.html { redirect_to home_url }
+            f.js
+        end
+
     end
 end

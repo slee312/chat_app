@@ -38,6 +38,14 @@ textarea {
     width: 100%;
 }
 
+.c-btn {
+    padding: 7px 10px;
+    background-color: $blue;
+    color: #FFF;
+    font-weight: bold;
+    border: 0;
+}
+
 /* top bar */
 .search-div {
     width: 100%;
@@ -100,6 +108,16 @@ textarea {
 .popup-title {
     margin-bottom: 30px;
     color: $blueDark;
+}
+
+.popup-errors {
+    opacity: 0;
+    filter: alpha(opacity = 0);
+}
+
+.popup-error-listing {
+    color: $red;
+    font-size: 12px;
 }
 
 

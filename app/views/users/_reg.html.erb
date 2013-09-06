@@ -4,24 +4,9 @@ Register
 
 <%= form_for @user, url: {action: "create"} do |form| %>
 
-<% flash.each do |key, value| %>
-    <div class = "<%= key %>"><%= value %> </div>
-
-<% end %>
 
 
-<% if @user.errors.any? %>
-<%= pluralize(@user.errors.count, "error") %> detected.
-<div class ="errors">
-   <% @user.errors.full_messages.each do |msg| %>
-   <%= msg %><br />
-   <% end %>
-</div>
-<br />
-<% end %>
-
-
-<%= form.label :username, "Desired Username" %>
+<%= form.label :username %>
 <%= form.text_field :username, autocomplete: :off %>
 
 <br />
@@ -42,5 +27,5 @@ Register
 <br />
 <br />
 
-<%= form.submit "Submit" %>
+<%= form.submit "Submit", class: "c-btn" %>
 <% end %>

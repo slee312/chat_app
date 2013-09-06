@@ -1,4 +1,7 @@
 ChatApp::Application.routes.draw do
+  get "users/new"
+  post "users", to: "users#create"
+
   resources :clowds
 
 

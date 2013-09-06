@@ -17,13 +17,89 @@ $graySuperLight: #CCC;
     -border-#{$vert}-#{$horiz}-radius: $radius;
 }
 
+@mixin border-radius-all($radius: 5px) {
+    -webkit-border-radius: $radius;
+    -moz-border-radius: $radius;
+    border-radius: $radius;
+}
+
 /* general */
+h2 {
+    margin: 0;
+}
 textarea {
     resize: none;
+}
+.clear-floats {
+    clear: both;
 }
 .crow {
     clear: both;
     width: 100%;
+}
+
+/* top bar */
+.search-div {
+    width: 100%;
+}
+
+.search-field {
+    width: 70%;
+}
+
+
+/* popup display */
+
+#dimmer {
+    height: 100%;
+    width: 100%;
+    z-index: 9999;
+    background-color: #000;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    filter: alpha(opacity = 0);
+    display: none;
+}
+
+#dimmed_display {
+    position: absolute;
+    z-index: 10000;
+    background-color: #FFF;
+    height: 50px;
+    width: 100px;
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    @include border-radius-all(5px);
+    opacity: 0;
+    filter: alpha(opacity = 0);
+    display: none;
+    padding: 5px;
+}
+
+.dimmed_load {
+    padding-top: 14px;
+    color: $grayLight;
+    font-weight: bold;
+}
+
+.popup-content {
+    margin-left: auto;
+    margin-right: auto;
+    width: 250px;
+    margin-top: 30px;
+    padding-left: 30px;
+    border-left: 2px solid $orange;
+
+}
+
+.popup-title {
+    margin-bottom: 30px;
+    color: $blueDark;
 }
 
 
@@ -334,5 +410,4 @@ ul.clowd-listing {
   line-height: normal;
   -webkit-border-radius: 8px;
   -moz-border-radius: 8px;
-  border-radius: 8px;
 }

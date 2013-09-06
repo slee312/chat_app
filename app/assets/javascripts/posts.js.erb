@@ -5,8 +5,40 @@ $(document).ready(function() {
     setUpPostbox();
     setUpPostSizes();
     setUpExpandButton();
+    configPopups();
+
     $('#load-left').hide();
 });
+
+function configPopups() {
+    $('#login_link').click(function() {
+        openPopup();
+    });
+    $('#register_link').click(function() {
+        openPopup();
+        $.get('/users/new.js', null, 'script');
+    });
+    $('#dimmer_close').click(function() {
+        closePopup();
+    });
+
+}
+
+function closePopup() {
+       $('#dimmer').fadeTo(100,0); 
+       $('#dimmer').css('display', 'none');
+
+       $('#dimmed_display').fadeTo(100,0); 
+       $('#dimmed_display').css({'display':'none','height':50,'width':100});
+       $('#dimmed_display').html("<div class = \"text-center dimmed_load\">Loading...</div>");
+}
+
+function openPopup() {
+    $('#dimmer').css('display', 'block');
+    $('#dimmer').fadeTo('fast', .8); 
+    $('#dimmed_display').css('display', 'block');
+    $('#dimmed_display').fadeTo('fast', 1); 
+}
 
 function setUpExpandButton() {
     $('.expand-bar').mouseover(function() {

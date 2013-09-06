@@ -28,6 +28,7 @@ gem 'leaflet-rails'
 gem 'httparty'
 gem 'mongoid'
 gem 'bson_ext'
+gem 'bcrypt-ruby', require: 'bcrypt'
 
 group :production do
   gem 'pg', '0.12.2'

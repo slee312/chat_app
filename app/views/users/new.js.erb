@@ -1,0 +1,2 @@
+$('#dimmed_display').animate({width: "350", height: "450"}, 500);
+setTimeout(function() {$('#dimmed_display').html('<%= escape_javascript(render partial: 'users/reg', layout: 'layouts/popup') %>'); $('#dimmer_close').click(function() { closePopup(); }); }, 500);

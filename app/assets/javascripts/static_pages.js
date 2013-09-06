@@ -55,7 +55,7 @@ function success_geo_callback(geo) {
 //creates a loading bar with a callback function after the designated amouont of time, appended in the designated jQuery element
 function createLoadBar(func, duration, element) {
     var loading_box = $(document.createElement("div"));
-    loading_box.attr("class", "progress progress-striped");
+    loading_box.attr("class", "progress");
     var loading_bar = $(document.createElement("div"));
     loading_bar.attr({ "class": "bar", "style": "width: 0px"});
     loading_box.append(loading_bar);

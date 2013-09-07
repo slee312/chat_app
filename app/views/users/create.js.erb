@@ -2,4 +2,13 @@
     $('#new_user').before("<%= escape_javascript(render partial: "utility/popup-errors", locals: {errors: @user.errors }) %>");
     $('.popup-errors').fadeTo(300, 1);
     $('#dimmed_display').animate({height: 450 + $('.popup-errors').height()}, 300);
+<% else %>
+    $('#new_user').before("<div class = \"popup-success\">Signing up was that easy!</div><div class = \"popup-redirect\">Redirecting you...</div>");
+    $('.popup-success').fadeTo(300, 1);
+    $('#new_user').fadeOut(300);
+    $('.popup-title').fadeOut(300);
+    $('#dimmed_display').animate({height: 160}, 500);
+    setTimeout(function() {
+        window.location = '<%= escape_javascript(home_url) %>';
+    }, 3000);
 <% end %>

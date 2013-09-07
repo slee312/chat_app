@@ -1,5 +1,8 @@
 ChatApp::Application.routes.draw do
   get "users/new"
+  get "sessions/new"
+  get "sign_out", to: "sessions_#destroy", as: "sign_out"
+  post "sessions", to: "sessions#create"
   post "users", to: "users#create"
 
   resources :clowds

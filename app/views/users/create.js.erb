@@ -1,10 +1,10 @@
 <% if @user.errors.any? %>
     $('#new_user').before("<%= escape_javascript(render partial: "utility/popup-errors", locals: {errors: @user.errors }) %>");
-    $('.popup-errors').fadeTo(300, 1);
+    $('.popup-errors').fadeIn(300);
     $('#dimmed_display').animate({height: 450 + $('.popup-errors').height()}, 300);
 <% else %>
-    $('#new_user').before("<div class = \"popup-success\">Signing up was that easy!</div><div class = \"popup-redirect\">Signing you in...</div>");
-    $('.popup-success').fadeTo(300, 1);
+    $('#new_user').before("<div class = \"popup-success\">Signing up was that easy!</div><div class = \"popup-redirect\">Loading stuff...</div>");
+    $('.popup-success').fadeIn(300);
     $('#new_user').fadeOut(300);
     $('.popup-title').fadeOut(300);
     $('#dimmed_display').animate({height: 160}, 500);

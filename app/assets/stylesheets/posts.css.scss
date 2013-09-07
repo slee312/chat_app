@@ -111,8 +111,7 @@ textarea {
 }
 
 .popup-errors {
-    opacity: 0;
-    filter: alpha(opacity = 0);
+    display: none;
 }
 
 .popup-error-listing {
@@ -125,8 +124,7 @@ textarea {
     font-size: 20px;
     font-weight: bold;
     padding: 20px 0;
-    opacity: 0;
-    filter: alpha(opacity = 0);
+    display: none;
 }
 
 .popup-redirect {

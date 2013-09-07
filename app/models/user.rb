@@ -20,8 +20,8 @@ class User
 
     #class methods
     class << self
-        def authenticate(email, password)
-            user = User.find_by(email: email)    
+        def authenticate(username, password)
+            user = User.find_by(username: username)    
             if user && user.password_hash == BCrypt::Engine.hash_secret(password, user.password_salt)
                 user
             else
@@ -32,8 +32,8 @@ class User
     end
 
     def encrypt_password
-        password_salt = BCrypt::Engine.generate_salt
-        password_hash = BCrypt::Engine.hash_secret(password, password_salt)
+        self.password_salt = BCrypt::Engine.generate_salt
+        self.password_hash = BCrypt::Engine.hash_secret(password, password_salt)
     end
 
 end

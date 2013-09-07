@@ -10,9 +10,7 @@ class UsersController < ApplicationController
     def create
         @user = User.new(params[:user])
         if @user.save
-            flash.now[:success] = "Signed up"
-        else
-            flash.now[:alert] = "Failed to sign up"
+            session[:username] = params[:user][:username]
         end
 
         respond_to do |f|

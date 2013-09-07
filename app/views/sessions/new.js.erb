@@ -1,12 +1,12 @@
-$('#dimmed_display').css({width: "350", height: "450"});
-loadRegisterForm();
+$('#dimmed_display').css({width: "350", height: "320"});
+loadLoginForm();
 
-function loadRegisterForm() {
-    $('#dimmed_display').html('<%= escape_javascript(render partial: 'users/reg', layout: 'layouts/popup') %>');
+function loadLoginForm() {
+    $('#dimmed_display').html('<%= escape_javascript(render partial: 'sessions/login', layout: 'layouts/popup') %>');
     $('#dimmer_close').click(function() {
         closePopup();
     });
-    $('#new_user').submit(function() {
+    $('#login_user').submit(function() {
         if ($('.popup-errors').length) {
             $('.popup-errors').remove();
         }

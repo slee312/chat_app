@@ -13,6 +13,7 @@ $(document).ready(function() {
 function configPopups() {
     $('#login_link').click(function() {
         openPopup();
+        $.get('/sessions/new.js', null, 'script');
     });
     $('#register_link').click(function() {
         openPopup();

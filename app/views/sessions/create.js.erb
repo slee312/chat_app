@@ -1,0 +1,14 @@
+<% if @status == 0 %>
+    $('#login_user').before("<div class = \"popup-errors popup-error-listing\">That didn\'t work...<br /><br /></div>");
+    $('.popup-errors').fadeIn(300);
+    $('#dimmed_display').animate({height: 320 + $('.popup-errors').height()}, 300);
+<% else %>
+    $('#login_user').before("<div class = \"popup-success\">Logged in!</div><div class = \"popup-redirect\">Loading stuff...</div>");
+    $('.popup-success').fadeIn(300);
+    $('#login_user').fadeOut(300);
+    $('.popup-title').fadeOut(300);
+    $('#dimmed_display').animate({height: 160}, 500);
+    setTimeout(function() {
+        window.location = '<%= escape_javascript(home_url) %>';
+    }, 3000);
+<% end %>

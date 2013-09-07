@@ -6,14 +6,18 @@
       <h1 class = "pull-right">Clowder</h1>
     </div>
     <div class = "span7" style = "padding-top:15px;">
-      <div class = "input-append search-div">
+      <div class = "input-append search-div text-center">
       <input type = "text" placeholder = "Search for places or clowds" class = "search-field">
       <button class = "btn">Search</button>
       </div>
     </div>
-    <div class = "span2" style = "padding-top:20px;">
-      <div class = "pull-left">
-        <a id = "login_link" href = "#">Login</a> or <a id = "register_link" href = "#">Register</a>
+    <div class = "span2" style = "display:table; height: 60px;">
+      <div style = "display: table-cell; vertical-align: middle">
+        <% if current_user %>
+           Not <%= current_user.username %>?<br />Click to <a href = "<%= sign_out_path %>">Sign out</a>. 
+        <% else %>
+            <a id = "login_link" href = "#">Login</a> or <a id = "register_link" href = "#">Register</a>
+        <% end %>
       </div>
     </div>
   </div>

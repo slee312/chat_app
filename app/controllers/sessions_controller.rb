@@ -15,7 +15,10 @@ class SessionsController < ApplicationController
             @status = 0 
         end
 
-        render text: "hey"
+        respond_to do |f|
+            f.html { redirect_to home_url }
+            f.js
+        end
     end
 
     def destroy
